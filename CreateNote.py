@@ -1,10 +1,18 @@
 # Criar Nota
-NotesFolder = str()
+import os
+SystemLocation = os.getcwd()
+NotesFolder = SystemLocation + '/Notas/'
 NoteProcessor = []
-Extension = ['.html', '.md', '.py', '.txt']
+Extension = ['.docx', '.html', '.md', '.py', '.rtf', '.rtfd', '.txt']
 
 def App():
     import MyNotes
+    MyNotes.App()
+
+def WordProcessor():
+    print("="*80)
+    print(f'>> Processando Arquivo do Microsoft Word...')
+    print("="*80)
     
 def SalvarNota():
     Count = 0
@@ -28,6 +36,9 @@ def SalvarNota():
         print(f'>> Nota salva como "{NomeNota}{Extension[Opc-1]}"')
         for Writer in NoteProcessor:
             f.write(Writer + NewLine)
+        App()
+##        NoteProcessor.clear()
+##        print(NoteProcessor)
     except:
         print("="*80)
         print(f'>> Arquivo já existente: <<')
@@ -43,15 +54,19 @@ def SalvarNota():
             print(f'>> Nota salva como "{NomeNota}{Extension[Opc-1]}"')
             for Writer in NoteProcessor:
                 f.write(Writer + NewLine)
+##            NoteProcessor.clear()
+##            print(NoteProcessor)
+            App()
         else:
             print(">> A Nota não foi salva!")
+##    NoteProcessor.clear()
+##    print(NoteProcessor)
             App()
     
 def CriarNota():
+    print(f'>> Dica: Aperte "Enter" no teclado para opções da nota')
     print("="*80)
-    print(f'>> Dica: Aperte "Enter" no teclado para finalizar a nota')
-    print("="*80)
-    Content = str(input())
+    Content = str(input(">> "))
     NoteProcessor.append(Content)
     
     Loop = True
@@ -60,12 +75,12 @@ def CriarNota():
         print(f'>> 1. Nova Linha')
         print(f'>> 2. Ler Nota')
         print(f'>> 3. Salvar Nota')
-        print(f'>> 4. Finalizar Nota')
+        print(f'>> 4. Finalizar Nota (Somente Leitura)')
         print("="*80)
         Opc = int(input(">> Digite o número da opção: "))
 
         if Opc == 1:
-            Content = str(input())
+            Content = str(input(">> "))
             NoteProcessor.append(Content)
         elif Opc == 2:
             print()
@@ -79,6 +94,15 @@ def CriarNota():
         elif Opc == 3:
             Loop = False
             SalvarNota()
+        elif Opc == 4:
+            print("="*40)
+            print(f'>> Ler Nota: <<')
+            print("="*40)
+            for Writer in NoteProcessor:
+                print(Writer)
+            print("="*40)
+            print()
+            NoteProcessor.clear()
         else:
             print("="*80)
             print(f'>> Nota finalizada')
