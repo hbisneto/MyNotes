@@ -1,14 +1,14 @@
 import os
 from datetime import date
 import CreateNote
+import OpenNote
 
 SystemLocation = os.getcwd()
 NotesFolder = SystemLocation + '/Notas/'
-CreateNote.NotesFolder = NotesFolder
 
 AnoAtual = date.today().year
 SoftwareName = "MyNotes"
-Version = "1.0"
+Version = "1.1"
 CopyrightName = "Heitor Bisneto."
 print("="*80)
 print(f'[{SoftwareName}] - Em Execução...')
@@ -35,12 +35,17 @@ def PrepararSistema():
         print(f'>> Status: Pasta "{NotesFolder}" configurada!')
         print()
 
+#PrepararSistema()
+
 def App():
     PrepararSistema()
+    CreateNote.NoteProcessor.clear()
+    print(f'NoteProcessor: {CreateNote.NoteProcessor}')
     print("="*80)
     print(f'>> Menu <<')
     print("="*80)
     print(f'>> 1. Criar Nota')
+    print(f'>> 2. Abrir Nota')
     print("="*80)
     Opc = int(input(">> Digite o número da opção: "))
 
@@ -49,4 +54,10 @@ def App():
         print(f'>> Criar Nota: <<')
         print("="*80)
         CreateNote.CriarNota()
+    elif Opc == 2:
+        print("="*80)
+        print(f'>> Abrir Nota: <<')
+        print("="*80)
+        OpenNote.AbrirNota()
+
 App()
