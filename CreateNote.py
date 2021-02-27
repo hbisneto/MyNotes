@@ -3,7 +3,7 @@ import os
 SystemLocation = os.getcwd()
 NotesFolder = SystemLocation + '/Notas/'
 NoteProcessor = []
-Extension = ['.docx', '.html', '.md', '.py', '.rtf', '.rtfd', '.txt']
+Extension = ['.html', '.md', '.py', '.txt']
 
 def App():
     import MyNotes
