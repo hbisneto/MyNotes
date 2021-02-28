@@ -1,4 +1,5 @@
 # OpenNote
+
 import os
 SystemLocation = os.getcwd()
 NotesFolder = SystemLocation + '/Notas/'
@@ -43,4 +44,3 @@ def AbrirNota(MyFiles = []):
         print("="*80)
         f = open(f'{NotesFolder}{MyFiles[Opc-1]}', "r")
         print(f.read())
-        App()
