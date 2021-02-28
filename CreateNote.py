@@ -1,4 +1,5 @@
 # Criar Nota
+
 import os
 SystemLocation = os.getcwd()
 NotesFolder = SystemLocation + '/Notas/'
@@ -8,11 +9,6 @@ Extension = ['.html', '.md', '.py', '.txt']
 def App():
     import MyNotes
     MyNotes.App()
-
-def WordProcessor():
-    print("="*80)
-    print(f'>> Processando Arquivo do Microsoft Word...')
-    print("="*80)
     
 def SalvarNota():
     Count = 0
@@ -36,9 +32,8 @@ def SalvarNota():
         print(f'>> Nota salva como "{NomeNota}{Extension[Opc-1]}"')
         for Writer in NoteProcessor:
             f.write(Writer + NewLine)
-        App()
-##        NoteProcessor.clear()
-##        print(NoteProcessor)
+        print('>> Digite "App()" para executar o programa novamente')
+
     except:
         print("="*80)
         print(f'>> Arquivo já existente: <<')
@@ -54,13 +49,9 @@ def SalvarNota():
             print(f'>> Nota salva como "{NomeNota}{Extension[Opc-1]}"')
             for Writer in NoteProcessor:
                 f.write(Writer + NewLine)
-##            NoteProcessor.clear()
-##            print(NoteProcessor)
-            App()
+            print('>> Digite "App()" para executar o programa novamente')
         else:
             print(">> A Nota não foi salva!")
-##    NoteProcessor.clear()
-##    print(NoteProcessor)
             App()
     
 def CriarNota():

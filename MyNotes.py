@@ -1,3 +1,5 @@
+# MyNotes
+
 import os
 from datetime import date
 import CreateNote
@@ -8,7 +10,7 @@ NotesFolder = SystemLocation + '/Notas/'
 
 AnoAtual = date.today().year
 SoftwareName = "MyNotes"
-Version = "1.1"
+Version = "1.1.0.1"
 CopyrightName = "Heitor Bisneto."
 print("="*80)
 print(f'[{SoftwareName}] - Em Execução...')
@@ -35,12 +37,9 @@ def PrepararSistema():
         print(f'>> Status: Pasta "{NotesFolder}" configurada!')
         print()
 
-#PrepararSistema()
-
 def App():
     PrepararSistema()
     CreateNote.NoteProcessor.clear()
-    print(f'NoteProcessor: {CreateNote.NoteProcessor}')
     print("="*80)
     print(f'>> Menu <<')
     print("="*80)
