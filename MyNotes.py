@@ -4,13 +4,14 @@ import os
 from datetime import date
 import CreateNote
 import OpenNote
+import DeleteNote
 
 SystemLocation = os.getcwd()
 NotesFolder = SystemLocation + '/Notas/'
 
 AnoAtual = date.today().year
 SoftwareName = "MyNotes"
-Version = "1.1.0.1"
+Version = "1.2"
 CopyrightName = "Heitor Bisneto."
 print("="*80)
 print(f'[{SoftwareName}] - Em Execução...')
@@ -45,6 +46,7 @@ def App():
     print("="*80)
     print(f'>> 1. Criar Nota')
     print(f'>> 2. Abrir Nota')
+    print(f'>> 3. Deletar Nota')
     print("="*80)
     Opc = int(input(">> Digite o número da opção: "))
 
@@ -58,5 +60,10 @@ def App():
         print(f'>> Abrir Nota: <<')
         print("="*80)
         OpenNote.AbrirNota()
+    elif Opc == 3:
+        print("="*80)
+        print(f'>> Deletar Nota: <<')
+        print("="*80)
+        DeleteNote.DeletarNota()
 
 App()

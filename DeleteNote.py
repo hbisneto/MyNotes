@@ -1,6 +1,7 @@
-# OpenNote
+# DeleteNote
 
 import os
+
 SystemLocation = os.getcwd()
 NotesFolder = SystemLocation + '/Notas/'
 
@@ -20,7 +21,7 @@ class cd:
     def __exit__(Self, Etype, Value, Traceback):
         os.chdir(Self.SavedPath)
         
-def AbrirNota(MyFiles = []):
+def DeletarNota(MyFiles = []):
     MyFiles.clear()
     with cd(NotesFolder):
         Count = 0
@@ -40,8 +41,26 @@ def AbrirNota(MyFiles = []):
         Opc = int(input(">> Digite o número da opção: "))
 
         print("="*80)
-        print(f'>> Conteúdos da nota <<')
+        print(f'>> Tem certeza que gostaria de deletar a nota "{MyFiles[Opc-1]}"?')
+        print(f'>> 1. Sim')
+        print(f'>> 2. NÃO')
         print("="*80)
-        f = open(f'{NotesFolder}{MyFiles[Opc-1]}', "r")
-        print(f.read())
-        print('>> Digite "App()" para executar o programa novamente')
+        Confirm = int(input(">> Digite o número da opção: "))
+
+        if Confirm == 1:
+            if os.path.exists(f'{NotesFolder}{MyFiles[Opc-1]}'):
+                os.remove(f'{NotesFolder}{MyFiles[Opc-1]}')
+                print(f'>> Arquivo excluído: "{MyFiles[Opc-1]}"')
+                print('>> Digite "App()" para executar o programa novamente')
+            else:
+                print("="*80)
+                print(">> Erro ao deletar arquivo! <<")
+                print(">> Verifique a existência do arquivo e tente novamente")
+                print("="*80)
+                print('>> Digite "App()" para executar o programa novamente')
+        else:
+            print(">> Operação cancelada!")
+            print('>> Digite "App()" para executar o programa novamente')
+        
+
+        
