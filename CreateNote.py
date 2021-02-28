@@ -66,7 +66,6 @@ def CriarNota():
         print(f'>> 1. Nova Linha')
         print(f'>> 2. Ler Nota')
         print(f'>> 3. Salvar Nota')
-        print(f'>> 4. Finalizar Nota (Somente Leitura)')
         print("="*80)
         Opc = int(input(">> Digite o número da opção: "))
 
@@ -85,15 +84,6 @@ def CriarNota():
         elif Opc == 3:
             Loop = False
             SalvarNota()
-        elif Opc == 4:
-            print("="*40)
-            print(f'>> Ler Nota: <<')
-            print("="*40)
-            for Writer in NoteProcessor:
-                print(Writer)
-            print("="*40)
-            print()
-            NoteProcessor.clear()
         else:
             print("="*80)
             print(f'>> Nota finalizada')
