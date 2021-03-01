@@ -4,7 +4,7 @@ import os
 SystemLocation = os.getcwd()
 NotesFolder = SystemLocation + '/Notas/'
 NoteProcessor = []
-Extension = ['.html', '.md', '.py', '.rtf', '.txt']
+Extension = ['.html', '.md', '.py', '.txt']
 
 def App():
     import MyNotes
