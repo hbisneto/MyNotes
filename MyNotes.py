@@ -11,7 +11,7 @@ NotesFolder = SystemLocation + '/Notas/'
 
 AnoAtual = date.today().year
 SoftwareName = "MyNotes"
-Version = "1.2.1"
+Version = "1.2.2"
 CopyrightName = "Heitor Bisneto."
 print("="*80)
 print(f'[{SoftwareName}] - Em Execução...')
