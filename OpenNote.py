@@ -23,7 +23,6 @@ class cd:
 def AbrirNota(MyFiles = []):
     MyFiles.clear()
     with cd(NotesFolder):
-        Count = 0
         Process = os.listdir()
         
         for Files in Process:
@@ -31,16 +30,17 @@ def AbrirNota(MyFiles = []):
             if '.DS_Store' in MyFiles:
                 MyFiles.remove('.DS_Store')
 
+        print(f'>> Notas Disponíveis:')
+        print("="*80)
+        Count = 0
+        for Arquivo in MyFiles:
+            Count += 1
+            print(f'{Count}. {Arquivo}')
+
         if Count == 0:
-            print(f'>> Não há notas disponíveis')
-            print('>> Digite "App()" para executar o programa novamente')
+            print(f'>> Não há notas disponíveis!')
             print("="*80)
         else:
-            print(f'>> Notas Disponíveis:')
-            print("="*80)
-            for Arquivo in MyFiles:
-                Count += 1
-                print(f'{Count}. {Arquivo}')
             print("="*80)
             Opc = int(input(">> Digite o número da opção: "))
 
