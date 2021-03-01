@@ -31,17 +31,22 @@ def AbrirNota(MyFiles = []):
             if '.DS_Store' in MyFiles:
                 MyFiles.remove('.DS_Store')
 
-        print(f'>> Notas Disponíveis:')
-        print("="*80)
-        for Arquivo in MyFiles:
-            Count += 1
-            print(f'{Count}. {Arquivo}')
-        print("="*80)
-        Opc = int(input(">> Digite o número da opção: "))
+        if Count == 0:
+            print(f'>> Não há notas disponíveis')
+            print('>> Digite "App()" para executar o programa novamente')
+            print("="*80)
+        else:
+            print(f'>> Notas Disponíveis:')
+            print("="*80)
+            for Arquivo in MyFiles:
+                Count += 1
+                print(f'{Count}. {Arquivo}')
+            print("="*80)
+            Opc = int(input(">> Digite o número da opção: "))
 
-        print("="*80)
-        print(f'>> Conteúdos da nota <<')
-        print("="*80)
-        f = open(f'{NotesFolder}{MyFiles[Opc-1]}', "r")
-        print(f.read())
-        print('>> Digite "App()" para executar o programa novamente')
+            print("="*80)
+            print(f'>> Conteúdos da nota <<')
+            print("="*80)
+            f = open(f'{NotesFolder}{MyFiles[Opc-1]}', "r")
+            print(f.read())
+            print('>> Digite "App()" para executar o programa novamente')
