@@ -13,7 +13,7 @@ BackupFolder = SystemLocation + '/Backup/'
 
 AnoAtual = date.today().year
 SoftwareName = "MyNotes"
-Version = "1.3"
+Version = "1.3.1"
 CopyrightName = "Heitor Bisneto."
 
 print("="*80)
@@ -27,10 +27,9 @@ if AnoAtual == 2021:
     print("Copyright ©", AnoAtual, "|", CopyrightName, "All rights reserved.")
 else:
     print("Copyright © 2021 -", AnoAtual, "|", CopyrightName, "All rights reserved.")
-print("")
+print()
 
 class cd:
-    # Gerenciador de contexto para mudar o diretório atual
     def __init__(Self, NewPath):
         Self.NewPath = os.path.expanduser(NewPath)
 
@@ -77,15 +76,13 @@ def ListarNotas(MyFiles = []):
         if Count == 0:
             print(f'>> Não há notas disponíveis!')
             print("="*80)
-            print('>> Digite "App()" para executar o programa novamente')
-        else:
-            print('>> Digite "App()" para executar o programa novamente')
+    print('>> Digite "App()" para executar o programa novamente')
 
 def App():
     PrepararSistema()
     CreateNote.NoteProcessor.clear()
     print("="*80)
-    print(f'>> Menu <<')
+    print(f'>> [{SoftwareName}] - Menu <<')
     print("="*80)
     print(f'>> 1. Criar Nota')
     print(f'>> 2. Abrir Nota')
@@ -119,6 +116,6 @@ def App():
         print("="*80)
         print(f'>> Backup: <<')
         print("="*80)
-        BackupLib.Backup()
+        BackupLib.PrepareBackup()
         
 App()

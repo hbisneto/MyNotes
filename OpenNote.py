@@ -9,7 +9,6 @@ def App():
     MyNotes.App()
 
 class cd:
-    # Gerenciador de contexto para mudar o diretório atual
     def __init__(Self, NewPath):
         Self.NewPath = os.path.expanduser(NewPath)
 
@@ -49,4 +48,4 @@ def AbrirNota(MyFiles = []):
             print("="*80)
             f = open(f'{NotesFolder}{MyFiles[Opc-1]}', "r")
             print(f.read())
-            print('>> Digite "App()" para executar o programa novamente')
+        print('>> Digite "App()" para executar o programa novamente')
