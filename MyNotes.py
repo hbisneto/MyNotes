@@ -1,29 +1,45 @@
 # MyNotes
 
+import BackupLib
+import CreateNote
+import DeleteNote
+import OpenNote
 import os
 from datetime import date
-import CreateNote
-import OpenNote
-import DeleteNote
 
 SystemLocation = os.getcwd()
 NotesFolder = SystemLocation + '/Notas/'
+BackupFolder = SystemLocation + '/Backup/'
 
 AnoAtual = date.today().year
 SoftwareName = "MyNotes"
-Version = "1.2.2"
+Version = "1.3"
 CopyrightName = "Heitor Bisneto."
+
 print("="*80)
 print(f'[{SoftwareName}] - Em Execução...')
 print("="*80)
 print("Nome:", SoftwareName)
 print("Versão:", Version)
 print("Criado por:", CopyrightName)
+
 if AnoAtual == 2021:
     print("Copyright ©", AnoAtual, "|", CopyrightName, "All rights reserved.")
 else:
     print("Copyright © 2021 -", AnoAtual, "|", CopyrightName, "All rights reserved.")
 print("")
+
+class cd:
+    # Gerenciador de contexto para mudar o diretório atual
+    def __init__(Self, NewPath):
+        Self.NewPath = os.path.expanduser(NewPath)
+
+    def __enter__(Self):
+        Self.SavedPath = os.getcwd()
+        os.chdir(Self.NewPath)
+
+    def __exit__(Self, Etype, Value, Traceback):
+        os.chdir(Self.SavedPath)
 
 def PrepararSistema():
     try:
@@ -33,10 +49,37 @@ def PrepararSistema():
         print(f'>> Verificando pasta: "{NotesFolder}"...')
         os.mkdir(NotesFolder)
         print(f'>> Pasta "{NotesFolder}" criada')
+        os.mkdir(BackupFolder)
+        print(f'>> Pasta "{BackupFolder}" criada')
         print()
     except OSError:
         print(f'>> Status: Pasta "{NotesFolder}" configurada!')
+        print(f'>> Status: Pasta "{BackupFolder}" configurada!')
         print()
+
+def ListarNotas(MyFiles = []):
+    MyFiles.clear()
+    with cd(NotesFolder):
+        Process = os.listdir()
+        
+        for Files in Process:
+            MyFiles.append(Files)
+            if '.DS_Store' in MyFiles:
+                MyFiles.remove('.DS_Store')
+
+        print(f'>> Notas Disponíveis:')
+        print("="*80)
+        Count = 0
+        for Arquivo in MyFiles:
+            Count += 1
+            print(f'{Count}. {Arquivo}')
+
+        if Count == 0:
+            print(f'>> Não há notas disponíveis!')
+            print("="*80)
+            print('>> Digite "App()" para executar o programa novamente')
+        else:
+            print('>> Digite "App()" para executar o programa novamente')
 
 def App():
     PrepararSistema()
@@ -47,6 +90,8 @@ def App():
     print(f'>> 1. Criar Nota')
     print(f'>> 2. Abrir Nota')
     print(f'>> 3. Deletar Nota')
+    print(f'>> 4. Listar Notas')
+    print(f'>> 5. Backup')
     print("="*80)
     Opc = int(input(">> Digite o número da opção: "))
 
@@ -65,5 +110,15 @@ def App():
         print(f'>> Deletar Nota: <<')
         print("="*80)
         DeleteNote.DeletarNota()
-
+    elif Opc == 4:
+        print("="*80)
+        print(f'>> Listar Notas: <<')
+        print("="*80)
+        ListarNotas()
+    elif Opc == 5:
+        print("="*80)
+        print(f'>> Backup: <<')
+        print("="*80)
+        BackupLib.Backup()
+        
 App()
