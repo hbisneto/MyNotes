@@ -21,6 +21,12 @@ Pra você que está lendo: Se quiser saber mais sobre o projeto ou contribuir co
 <br> Não precisa mais da nota que você salvou? É só deletar a nota!
 <br> O MyNotes permite deletar a nota criada independente da sua extensão de arquivo.
 
+* **Listar Notas:**
+<br> O MyNotes organiza todas as notas em um só lugar para ficar mais fácil na hora de procurar por elas. Liste as notas para abrir ou deletar se for necessário.
+
+* **Backup:**
+<br> O sistema de Backup salva todas as notas contidas no banco de dados de forma organizada por data e hora.
+
 ## Log de Atualização
 
 ```
@@ -31,7 +37,6 @@ Versão 1.0:
 ```
 Versão 1.1:
 - Adição do recurso "Abrir Nota"
-- Adição do recurso "Listar Notas Salvas"
 ```
 
 ```
@@ -54,7 +59,9 @@ Versão 1.2.1:
 
 ```
 Versão 1.2.2:
-- Correções de erros da versão anterior que impediam o usuário de listar as notas salvas quando o recurso "Abrir Nota" ou "Deletar Nota" era escolhido no menu de opcões
+- Correções de erros que impediam o usuário de listar as notas quando:
+- O recurso "Abrir Nota" era escolhido no menu de opcões
+- O recurso "Deletar Nota" era escolhido no menu de opcões
 ```
 
 ```
@@ -62,4 +69,10 @@ Versão 1.3:
 - Adição do recurso "Listar Notas"
 - Adição do recurso "Backup"
 - Adicionada nova opção de extensão de arquivo suportado: Rich Text Format (RTF)
+```
+
+```
+Versão 1.3.1:
+- Melhorias no sistema de "Backup"
+- Pequenas alterações de texto
 ```

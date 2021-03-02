@@ -37,13 +37,6 @@ def SalvarNota():
         RTFLib.FileName = NotaExport
         RTFLib.NomeNota = NomeNota
         RTFLib.SaveRTF()
-    elif Extension[Opc - 1] == ".MyNotes":
-        NotaExport = f'{NotesFolder}{NomeNota}{Extension[Opc-1]}'
-        NomeNota = f'{NomeNota}{Extension[Opc-1]}'
-        
-        RTFLib.FileName = NotaExport
-        RTFLib.NomeNota = NomeNota
-        RTFLib.SaveRTF()
     else:
         try:
             f = open(f'{NotesFolder}{NomeNota}{Extension[Opc-1]}', 'x')

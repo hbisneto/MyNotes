@@ -4,46 +4,52 @@ import os
 import shutil
 import datetime
 
-Day = datetime.date.today().day
-DayStr = str(Day)
-Month = datetime.date.today().month
-MonthStr = str(Month)
-Year = datetime.date.today().year
-YearStr = str(Year)
+def PrepareBackup():
+    Count = 0
+    while Count < 15:
+        Count += 1
 
-Hour = datetime.datetime.now().hour
-Minute = datetime.datetime.now().minute
-Second = datetime.datetime.now().second
+    if Count >= 15:
+        DateFunc()
+        Backup()
 
-if Day < 10:
-    DayStr = "0" + str(Day)
-else:
-    DayStr = Day
+def DateFunc():
+    DateFunc.Day = datetime.date.today().day
+    DateFunc.Month = datetime.date.today().month
+    DateFunc.Year = datetime.date.today().year
 
-if Month < 10:
-    MonthStr = "0" + str(Month)
-else:
-    MonthStr = Month
+    DateFunc.Hour = datetime.datetime.now().hour
+    DateFunc.Minute = datetime.datetime.now().minute
+    DateFunc.Second = datetime.datetime.now().second
 
-DateFormat = f'{DayStr}-{MonthStr}-{YearStr}_{Hour}_{Minute}_{Second}'
+    DateFunc.DayStr = str(DateFunc.Day)
+    DateFunc.MonthStr = str(DateFunc.Month)
+    DateFunc.YearStr = str(DateFunc.Year)
 
-def App():
-    import MyNotes
-    MyNotes.App()
+    if DateFunc.Day < 10:
+        DateFunc.DayStr = "0" + str(DateFunc.Day)
+    else:
+        DateFunc.DayStr = DateFunc.Day
 
-def Backup(source = f'{os.getcwd()}/Notas/', target = f'{os.getcwd()}/Backup/{DateFormat}/'):
+    if DateFunc.Month < 10:
+        DateFunc.MonthStr = "0" + str(DateFunc.Month)
+    else:
+        DateFunc.MonthStr = DateFunc.Month
+
+    DateFunc.DateFormat = f'{DateFunc.DayStr}-{DateFunc.MonthStr}-{DateFunc.YearStr}_{DateFunc.Hour}_{DateFunc.Minute}_{DateFunc.Second}'
+
+def Backup():
+    source = f'{os.getcwd()}/Notas/'
+    target = f'{os.getcwd()}/Backup/{DateFunc.DateFormat}/'
     try:
-        print("="*80)
         print(f'[MyNotes] - Processando Backup...')
         print("="*80)
         shutil.copytree(source, target)
         print(">> Backup Concluído!")
         print('>> Digite "App()" para executar o programa novamente')
-    # Diretórios iguais
     except shutil.Error as e:
         print('>> Diretório não copiado. Código do Erro: %s' % e)
         print('>> Digite "App()" para executar o programa novamente')
-    # Erro de sistema: Provavelmente o diretório não existe
     except OSError as e:
         print('>> Diretório não copiado. Código do Erro: %s' % e)
         print('>> Digite "App()" para executar o programa novamente')

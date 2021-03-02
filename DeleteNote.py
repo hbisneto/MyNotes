@@ -10,7 +10,6 @@ def App():
     MyNotes.App()
 
 class cd:
-    # Gerenciador de contexto para mudar o diretório atual
     def __init__(Self, NewPath):
         Self.NewPath = os.path.expanduser(NewPath)
 
@@ -56,16 +55,14 @@ def DeletarNota(MyFiles = []):
                 if os.path.exists(f'{NotesFolder}{MyFiles[Opc-1]}'):
                     os.remove(f'{NotesFolder}{MyFiles[Opc-1]}')
                     print(f'>> Arquivo excluído: "{MyFiles[Opc-1]}"')
-                    print('>> Digite "App()" para executar o programa novamente')
                 else:
                     print("="*80)
                     print(">> Erro ao deletar arquivo! <<")
                     print(">> Verifique a existência do arquivo e tente novamente")
                     print("="*80)
-                    print('>> Digite "App()" para executar o programa novamente')
             else:
                 print(">> Operação cancelada!")
-                print('>> Digite "App()" para executar o programa novamente')
+        print('>> Digite "App()" para executar o programa novamente')
         
 
         
