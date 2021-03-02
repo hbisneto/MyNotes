@@ -1,10 +1,12 @@
 # Criar Nota
 
 import os
+import RTFLib
+
 SystemLocation = os.getcwd()
 NotesFolder = SystemLocation + '/Notas/'
 NoteProcessor = []
-Extension = ['.html', '.md', '.py', '.txt']
+Extension = ['.html', '.md', '.py', '.rtf', '.txt']
 
 def App():
     import MyNotes
@@ -27,32 +29,48 @@ def SalvarNota():
         print(f'{Count} {Format}')
     print("="*80)
     Opc = int(input(">> Escolha a extensão da Nota: "))
-    try:
-        f = open(f'{NotesFolder}{NomeNota}{Extension[Opc-1]}', 'x')
-        print(f'>> Nota salva como "{NomeNota}{Extension[Opc-1]}"')
-        for Writer in NoteProcessor:
-            f.write(Writer + NewLine)
-        print('>> Digite "App()" para executar o programa novamente')
 
-    except:
-        print("="*80)
-        print(f'>> Arquivo já existente: <<')
-        print('>> Gostaria de sobreescrever?')
-        print("="*80)
-        print('1. Sim')
-        print('2. Não')
-        print("="*80)
-        Confirm = int(input(f'>> Digite o número da opção: '))
-
-        if Confirm == 1:
-            f = open(f'{NotesFolder}{NomeNota}{Extension[Opc-1]}', 'w')
+    if Extension[Opc - 1] == ".rtf":
+        NotaExport = f'{NotesFolder}{NomeNota}{Extension[Opc-1]}'
+        NomeNota = f'{NomeNota}{Extension[Opc-1]}'
+        
+        RTFLib.FileName = NotaExport
+        RTFLib.NomeNota = NomeNota
+        RTFLib.SaveRTF()
+    elif Extension[Opc - 1] == ".MyNotes":
+        NotaExport = f'{NotesFolder}{NomeNota}{Extension[Opc-1]}'
+        NomeNota = f'{NomeNota}{Extension[Opc-1]}'
+        
+        RTFLib.FileName = NotaExport
+        RTFLib.NomeNota = NomeNota
+        RTFLib.SaveRTF()
+    else:
+        try:
+            f = open(f'{NotesFolder}{NomeNota}{Extension[Opc-1]}', 'x')
             print(f'>> Nota salva como "{NomeNota}{Extension[Opc-1]}"')
             for Writer in NoteProcessor:
                 f.write(Writer + NewLine)
             print('>> Digite "App()" para executar o programa novamente')
-        else:
-            print(">> A Nota não foi salva!")
-            App()
+
+        except:
+            print("="*80)
+            print(f'>> Arquivo já existente: <<')
+            print('>> Gostaria de sobreescrever?')
+            print("="*80)
+            print('1. Sim')
+            print('2. Não')
+            print("="*80)
+            Confirm = int(input(f'>> Digite o número da opção: '))
+
+            if Confirm == 1:
+                f = open(f'{NotesFolder}{NomeNota}{Extension[Opc-1]}', 'w')
+                print(f'>> Nota salva como "{NomeNota}{Extension[Opc-1]}"')
+                for Writer in NoteProcessor:
+                    f.write(Writer + NewLine)
+                print('>> Digite "App()" para executar o programa novamente')
+            else:
+                print(">> A Nota não foi salva!")
+                App()
     
 def CriarNota():
     print(f'>> Dica: Aperte "Enter" no teclado para opções da nota')
