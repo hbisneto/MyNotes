@@ -1,4 +1,7 @@
-# OpenNote
+################################################################################
+##                      Nome do Arquivo: OpenNote.py                          ##
+##                  Criado por: Heitor Bardemaker A. Bisneto                  ##
+################################################################################
 
 import os
 SystemLocation = os.getcwd()

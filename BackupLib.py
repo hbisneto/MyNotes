@@ -1,4 +1,7 @@
-# BackupLib
+################################################################################
+##                      Nome do Arquivo: BackupLib.py                         ##
+##                  Criado por: Heitor Bardemaker A. Bisneto                  ##
+################################################################################
 
 import os
 import shutil

@@ -1,4 +1,7 @@
-# RTFLib
+################################################################################
+##                      Nome do Arquivo: RTFLib.py                            ##
+##                  Criado por: Heitor Bardemaker A. Bisneto                  ##
+################################################################################
 
 import os
 import CreateNote

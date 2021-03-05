@@ -1,4 +1,7 @@
-# MyNotes
+################################################################################
+##                      Nome do Arquivo: MyNotes.py                           ##
+##                  Criado por: Heitor Bardemaker A. Bisneto                  ##
+################################################################################
 
 import BackupLib
 import CreateNote
@@ -13,7 +16,7 @@ BackupFolder = SystemLocation + '/Backup/'
 
 AnoAtual = date.today().year
 SoftwareName = "MyNotes"
-Version = "1.3.1"
+Version = "1.3.2"
 CopyrightName = "Heitor Bisneto."
 
 print("="*80)

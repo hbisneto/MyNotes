@@ -76,3 +76,8 @@ Versão 1.3.1:
 - Melhorias no sistema de "Backup"
 - Pequenas alterações de texto
 ```
+
+```
+Versão 1.3.2:
+- Pequenas alterações de texto
+```
