@@ -1,4 +1,7 @@
-# Criar Nota
+################################################################################
+##                      Nome do Arquivo: CreateNote.py                        ##
+##                  Criado por: Heitor Bardemaker A. Bisneto                  ##
+################################################################################
 
 import os
 import RTFLib
