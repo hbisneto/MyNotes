@@ -4,15 +4,15 @@
 import sys
 from exception import Exceptions
 
-## Change "Require" to "False" to skip system check
-Require = True
-## Change "Require" to "True" to allow system check
+## Change "REQUIRE" to "False" to skip system check
+REQUIRE = True
+## Change "REQUIRE" to "True" to allow system check
 
-if Require == True:
+if REQUIRE == True:
    ## Target System
    TargetMajor = 3
-   TargetMinor = 10
-   TargetBuild = 5
+   TargetMinor = 9
+   TargetBuild = 0
    TargetVersion = f'{TargetMajor}.{TargetMinor}.{TargetBuild}'
    ## Target System
 
@@ -27,7 +27,41 @@ if Require == True:
    ## print(f'>> My system current version: Python {CurrentVersion}')
    ## print(f'>> Required version to run: Python {TargetVersion}')
 
-   if TargetVersion > CurrentVersion:
-      Exceptions.Raise().Requirements().MajorVersion(CurrentVersion, TargetVersion, TargetMajor)
-   elif TargetVersion < CurrentVersion:
-      Exceptions.Raise().Requirements().MinorVersion(CurrentVersion, TargetVersion, TargetMinor)
+   def CheckMajorVersion():
+      ## Note: if this key is set to False, the system won't run even if meets requirements
+      AllowKey = True
+      ## Note: if this key is set to False, the system won't run even if meets requirements
+      
+      if MajorVersion < TargetMajor:
+         AllowKey = False
+      else:
+         if MinorVersion < TargetMinor:
+             AllowKey = False
+         else:
+             if BuildVersion < TargetBuild:
+                 AllowKey = False
+                 
+      if AllowKey == False:
+         # Exceptions.Raise().Requirements().MajorVersion(CurrentVersion, TargetVersion, TargetMajor)
+         Exceptions.Throw.MajorVersion(CurrentVersion, TargetVersion, MajorVersion)
+
+   def CheckMinorVersion():
+      ## Note: if this key is set to True, the system will warn evertime it runs
+      ShowWarn = False
+      ## Note: if this key is set to True, the system will warn evertime it runs
+      
+      if MajorVersion > TargetMajor:
+         ShowWarn = True
+      else:
+         if MinorVersion > TargetMinor:
+             ShowWarn = True
+         else:
+             if BuildVersion > TargetBuild:
+                 ShowWarn = True
+                 
+      if ShowWarn == True:
+         # Exceptions.Raise().Requirements().MinorVersion(CurrentVersion, TargetVersion, TargetMinor)
+         Exceptions.Throw.MinorVersion(CurrentVersion, TargetVersion, TargetMinor)
+
+   CheckMajorVersion()
+   CheckMinorVersion()

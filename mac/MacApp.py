@@ -27,7 +27,7 @@ def Main():
    CopyrightName = "Heitor Bisneto."
 
    print("="*80)
-   print(f'[{SoftwareName}] - Em Execução...')
+   print(f'[{SoftwareName} for Mac] - Em Execução...')
    print("="*80)
    print("Nome:", SoftwareName)
    print("Versão:", Version)
@@ -86,7 +86,7 @@ def Main():
            if Count == 0:
                print(f'>> Não há notas disponíveis!')
                print("="*80)
-       print('>> Digite "App()" para executar o programa novamente')
+       print('>> [MyNotes]: O programa foi finalizado') ## Create Library for System Messages (MyNotes #21)
 
    def App():
        PrepararSistema()

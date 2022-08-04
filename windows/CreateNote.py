@@ -4,16 +4,16 @@
 ################################################################################
 
 import os
-from mac import RTFLib
+from windows import RTFLib
 
 SystemLocation = os.getcwd()
 NotesFolder = SystemLocation + '/Notas/'
 NoteProcessor = []
 Extension = ['.html', '.md', '.py', '.rtf', '.txt']
 
-def App():
-    import MyNotes
-    MyNotes.App()
+# def App():
+#     import MyNotes
+#     MyNotes.App()
     
 def SalvarNota():
     Count = 0
@@ -65,8 +65,8 @@ def SalvarNota():
                     f.write(Writer + NewLine)
                 print('>> [MyNotes]: O programa foi finalizado') ## Create Library for System Messages (MyNotes #21)
             else:
-                print(">> A Nota não foi salva!")
-                App()
+                print(">> [MyNotes]: A Nota não foi salva!") ## Create Library for System Messages (MyNotes #21)
+                # App()
     
 def CriarNota():
     print(f'>> Dica: Aperte "Enter" no teclado para opções da nota')

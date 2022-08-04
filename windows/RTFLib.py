@@ -4,7 +4,7 @@
 ################################################################################
 
 import os
-from mac import CreateNote
+from windows import CreateNote
 
 SystemLocation = os.getcwd()
 NotesFolder = SystemLocation + '/Notas/'
@@ -47,7 +47,8 @@ def SaveRTF():
                 f.write(f'{Writer}\{NewLine}')
             f = open(f'{FileName}', 'a')
             f.write("}")
+            print("="*80)
             print('>> [MyNotes]: O programa foi finalizado') ## Create Library for System Messages (MyNotes #21)
         else:
-            print(">> A Nota não foi salva!")
-            App()
+            print("="*80)
+            print(">> [MyNotes]: A Nota não foi salva!") ## Create Library for System Messages (MyNotes #21)

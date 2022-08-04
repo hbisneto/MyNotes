@@ -13,7 +13,7 @@ def Windows():
    from windows import SplashScreen
 
    ## Lets check system requirements
-   from exception import Requirements
+   from system import Requirements
 
    ## Start App for Windows
    from windows import WindowsApp
