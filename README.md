@@ -1,51 +1,93 @@
-# PyBridge
-###### Last repository update: 25/06/2021
+# MyNotes
+###### Lastest repository update: 04/08/2022
 
-Com o PyBridge é possível executar scripts em Python fazendo uma ponte do código implementado no projeto criado com outras plataformas.
-Uso sugerido pra quem precisa coletar dados de diferentes locais do sistema de arquivos do ambiente em que o projeto é executado.
+O MyNotes foi um projeto que começou na faculdade com a intenção de melhorar um bloco de notas de acordo com os feedbacks dados pelos usuários. O projeto tomou uma grande proporção e evoluiu muito em cada atualização.
 
-Com o PyBridge é possível a implementação de scripts para:
+Hoje ele é um software totalmente novo e feito com coração. Testado com carinho e tratado feito bebê recém nascido.
 
-1. Linux;
-2. macOS;
-3. Windows;
+Na versão de lançamento, muitos recursos foram atualizados. O sistema foi melhorado com correções de alguns erros das versões anteriores, melhorias de performance e um monte de outras coisas muito legais foram implementadas...
+Special thanks to (obrigado especial para) Gabriel Xavier, que é o artista do novo ícone do App. Não tenho palavras pra descrever o quanto estava ansioso com um ícone novo pra esse projeto. Eu adorei!
 
-O PyBridge conta com uma biblioteca de ***tratamento de erros*** padrão que pode ser executada em qualquer ambiente. Qualquer método dentro da biblioteca pode ser chamado de qualquer parte do código. Desse jeito, não é necessário a implementação da chamada de exceção ```raise RuntimeError()``` dentro do módulo de execução do programa. Basta referenciar a chamada da função condizente com o tratamento que deve ser executado.
+Pra você que está lendo: Se quiser saber mais sobre o projeto ou contribuir com feedbacks de melhorias ou correções de erros, no meu perfil tem o botão de enviar e-mail e na minha bio tem o link do blog que estou criando pra compartilhar um pouco de programação. No blog existe uma parte especificamente dedicada ao MyNotes, com informações, mais detalhes sobre o projeto e etc.
 
-## Estrutura do projeto
+## Principais Recursos:
 
-***COLOCAR AQUI, UM TREEVIEW DA ESTRUTURA DO PROJETO. MOSTRANDO TODAS AS PASTAS E ARQUIVOS CRIADOS PELO PYBRIDGE***
+* **Criar Nota:**
+<br> Crie notas do zero e salve o arquivo em extensões de texto mais usadas entre os mais conhecidos editores de texto.
 
-.
-├── _config.yml
-├── _data
-│   └── members.yml
-├── _drafts
-│   ├── begin-with-the-crazy-ideas.md
-│   └── on-simplicity-in-technology.md
-├── _includes
-│   ├── footer.html
-│   └── header.html
-├── _layouts
-│   ├── default.html
-│   └── post.html
-├── _posts
-│   ├── 2007-10-29-why-every-programmer-should-play-nethack.md
-│   └── 2009-04-26-barcamp-boston-4-roundup.md
-├── _sass
-│   ├── _base.scss
-│   └── _layout.scss
-├── _site
-├── .jekyll-cache
-│   └── Jekyll
-│       └── Cache
-│           └── [...]
-├── .jekyll-metadata
-└── index.html # can also be an 'index.md' with valid front matter
+* **Abrir Nota:**
+<br> Com o MyNotes, você pode abrir as notas salvas para visualizar o seu conteúdo.
 
-## Implementações futuras
+* **Deletar Nota:**
+<br> Não precisa mais da nota que você salvou? É só deletar a nota!
+<br> O MyNotes permite deletar a nota criada independente da sua extensão de arquivo.
 
-* Adicionar suporte a ```Android```;
-* Colocar o projeto criado no PyBridge em um ambiente virtual;
-* Trabalhar o amadurecimento do software: Após o termino do período do implementeções, diminuir variáveis e tornar o processo ainda mais rápido e automatizado;
-* Criar verificação dos arquivos de sistema: NÃO executar o PyBridge se os arquivos não estiverem devidamente instalados;
+* **Listar Notas:**
+<br> O MyNotes organiza todas as notas em um só lugar para ficar mais fácil na hora de procurar por elas. Liste as notas para abrir ou deletar se for necessário.
+
+* **Backup:**
+<br> O sistema de Backup salva todas as notas contidas no banco de dados de forma organizada por data e hora.
+
+## Log de Atualização
+
+```
+Versão 2.0:
+- Introduced new implementation using PyBridge API:
+- Code optimisations: Organising and reducing code
+
+
+```
+
+
+```
+Versão 1.0:
+- Versão de lançamento do Script
+```
+
+```
+Versão 1.1:
+- Adição do recurso "Abrir Nota"
+```
+
+```
+Versão 1.1.0.1:
+- Correções de erros
+- Pequenas alterações de texto
+- Remoção de comentários do código-fonte
+```
+
+```
+Versão 1.2:
+- Adição do Recurso "Deletar Nota"
+```
+
+```
+Versão 1.2.1:
+- Correções de entrada de usuário, quando não existem notas salvas
+- Agora é possível salvar arquivos com o mesmo nome se a extensão for diferente
+```
+
+```
+Versão 1.2.2:
+- Correções de erros que impediam o usuário de listar as notas quando:
+- O recurso "Abrir Nota" era escolhido no menu de opcões
+- O recurso "Deletar Nota" era escolhido no menu de opcões
+```
+
+```
+Versão 1.3:
+- Adição do recurso "Listar Notas"
+- Adição do recurso "Backup"
+- Adicionada nova opção de extensão de arquivo suportado: Rich Text Format (RTF)
+```
+
+```
+Versão 1.3.1:
+- Melhorias no sistema de "Backup"
+- Pequenas alterações de texto
+```
+
+```
+Versão 1.3.2:
+- Pequenas alterações de texto
+```
